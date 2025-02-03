@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hi, I'm Maroof</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght=500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <!-- Favicon -->
@@ -30,7 +30,6 @@ Exploring stories, trends, and insights that matter. Passionate about learning, 
     Exploring stories, trends, and insights that matter. Passionate about learning, writing, and contributing to a better, safer internet. Always growing, always curious.">
     <meta name="twitter:image" content="/images/main-assests/og-discription-image.png">
 </head>
-</head>
 <body>
     <header id="mainHeader">
         <div class="logo">
@@ -50,9 +49,7 @@ Exploring stories, trends, and insights that matter. Passionate about learning, 
         <section class="about-section">
             <h2 style="margin-bottom: 1rem; color: var(--accent);">About Me</h2>
             <p style="color: var(--secondary); line-height: 1.7;">
-I enjoy things like OSINT, blogging, and writing about media trends and digital beats. I believe in learning something new every day because there’s always room to grow. A Kashmiri at heart, I take pride in my roots and let them guide my journey. My goal is simple: to use my skills and knowledge to make the internet a better and safer place for all.
-
-
+                I enjoy things like OSINT, blogging, and writing about media trends and digital beats. I believe in learning something new every day because there’s always room to grow. A Kashmiri at heart, I take pride in my roots and let them guide my journey. My goal is simple: to use my skills and knowledge to make the internet a better and safer place for all.
             </p>
         </section>
     </div>
@@ -70,7 +67,6 @@ I enjoy things like OSINT, blogging, and writing about media trends and digital 
             <span class="role-item">🌐 Digital Explorer</span>
             <span class="role-item">🔐 Security Minded</span>
             <span class="role-item">❤️ Kashmiri at Heart</span>
-          
         </div>
     </section>
     <section class="contact">
@@ -81,11 +77,27 @@ I enjoy things like OSINT, blogging, and writing about media trends and digital 
             <a href="https://github.com/maroofmedia"><i class="fab fa-github"></i></a>
             <a href="mailto:hello@marooflone.com"><i class="fas fa-envelope"></i></a>
         </div>
-        
     </section>
     <footer>
        <p>© 2025 <a href="https://www.marooflone.com">Maroof Lone</a>. All rights reserved</p>
     </footer>
-    <script src="/script.js"></script>
+    <script>
+        // Hide header on scroll down, show on scroll up
+        let lastScroll = 0;
+        const header = document.getElementById('mainHeader');
+        const threshold = 50; // Reduced threshold for mobile
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > lastScroll && currentScroll > threshold) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
 </body>
 </html>
