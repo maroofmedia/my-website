@@ -12,7 +12,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
-
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Hi, I'm Maroof Lone">
     <meta property="og:description" content="Blogger | OSINT Enthusiast | Media Analyst | Cybersecurity Explorer | Kashmiri at Heart | JK05
@@ -22,7 +21,6 @@ Exploring stories, trends, and insights that matter. Passionate about learning, 
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://www.marooflone.com">
     <meta property="og:type" content="website">
-
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Hi, I'm Maroof Lone">
@@ -44,6 +42,7 @@ Exploring stories, trends, and insights that matter. Passionate about learning, 
                  class="profile-photo">
             <div class="hero-text">
                 <h1>Hi, I am<br>Maroof Lone</h1>
+                <a href="https://www.marooflone.com/blog" class="read-blog-btn"><i class="fa-solid fa-book"></i> Read my blog</a>
             </div>
         </div>
         <section class="about-section">
@@ -54,28 +53,34 @@ Exploring stories, trends, and insights that matter. Passionate about learning, 
         </section>
     </div>
     <section class="roles-marquee">
+        <!-- Line 1 -->
         <div class="marquee-container">
-            <span class="role-item">🎓 Student</span>
-            <span class="role-item">🕵️ OSINT Enthusiast</span>
-            <span class="role-item">✍️ Blogger</span>
-            <span class="role-item">🔍 Research Analyst</span>
-            <span class="role-item">🛡️ Cybersecurity</span>
-            <span class="role-item">🎬 Media Lover</span>
+            <div class="marquee-content">
+                <span class="role-item">🎓 Student</span>
+                <span class="role-item">🕵️ OSINT Enthusiast</span>
+                <span class="role-item">✍️ Blogger</span>
+                <span class="role-item">🔍 Research Analyst</span>
+                <span class="role-item">🛡️ Cybersecurity</span>
+                <span class="role-item">🎬 Media Lover</span>
+            </div>
         </div>
+        <!-- Line 2 -->
         <div class="marquee-container" style="animation-direction: reverse; margin-top: 1rem;">
-            <span class="role-item">📰 Media Analyst</span>
-            <span class="role-item">🌐 Digital Explorer</span>
-            <span class="role-item">🔐 Security Minded</span>
-            <span class="role-item">❤️ Kashmiri at Heart</span>
+            <div class="marquee-content">
+                <span class="role-item">📰 Media Analyst</span>
+                <span class="role-item">🌐 Digital Explorer</span>
+                <span class="role-item">🔐 Security Minded</span>
+                <span class="role-item">❤️ Kashmiri at Heart</span>
+            </div>
         </div>
     </section>
     <section class="contact">
         <h2 style="margin-bottom: 1rem;">Get in Touch</h2>
         <div class="social-icons">
+            <a href="mailto:hello@marooflone.com"><i class="fas fa-envelope"></i></a>
             <a href="https://www.x.com/marooflone13"><i class="fab fa-twitter"></i></a>
             <a href="https://www.linkedin.com/in/marooflone13"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/maroofmedia"><i class="fab fa-github"></i></a>
-            <a href="mailto:hello@marooflone.com"><i class="fas fa-envelope"></i></a>
         </div>
     </section>
     <footer>
@@ -86,17 +91,33 @@ Exploring stories, trends, and insights that matter. Passionate about learning, 
         let lastScroll = 0;
         const header = document.getElementById('mainHeader');
         const threshold = 50; // Reduced threshold for mobile
-
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
-
             if (currentScroll > lastScroll && currentScroll > threshold) {
                 header.classList.add('hidden');
             } else {
                 header.classList.remove('hidden');
             }
-
             lastScroll = currentScroll;
+        });
+
+        // Infinite Marquee Logic
+        document.querySelectorAll('.marquee-container').forEach(container => {
+            const content = container.querySelector('.marquee-content');
+            const clone = content.cloneNode(true);
+            container.appendChild(clone);
+
+            // Add spacing between loops
+            const spacer = document.createElement('span');
+            spacer.style.width = '0rem'; // Adjust spacing as needed
+            spacer.style.display = 'inline-block';
+            content.appendChild(spacer.cloneNode());
+            clone.appendChild(spacer.cloneNode());
+
+            // Adjust animation speed based on screen size
+            const duration = window.innerWidth <= 768 ? '10s' : '12s';
+            content.style.animation = `marquee ${duration} linear infinite`;
+            clone.style.animation = `marquee ${duration} linear infinite`;
         });
     </script>
 </body>
